@@ -82,3 +82,6 @@ for count in range(0, total_count):
 
 print(password)    
 
+# alternatively we can append all these in a list and then use random.shuffle(list name here)
+
+
