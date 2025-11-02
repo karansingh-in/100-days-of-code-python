@@ -50,6 +50,7 @@ while no_of_guesses != 0:
                 list_of_index.append(index)
                 no_of_right_guesses += 1
                 print('Very well! ')
+                
 
     if not user_choice in list_of_chosen_word:
         print(f'Wrong choice, you have {no_of_guesses} / {len(chosen_word)} lives left.')
