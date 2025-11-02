@@ -21,8 +21,11 @@ def encoding(num, message):
         
     encoded = ''
     for char in message:
-        index = alphabets.index(char)
-        encoded = encoded + changed_alphabets[index]
+        if char in alphabets:
+            index = alphabets.index(char)
+            encoded = encoded + changed_alphabets[index]
+        else:
+            encoded = encoded + char
         
     print('The encoded message is ', encoded)
     
@@ -47,8 +50,11 @@ def decoding(num, message):
         
     decoded = ''
     for char in message:
-        index = alphabets.index(char)
-        decoded = decoded + changed_alphabets[index]
+        if char in alphabets:
+            index = alphabets.index(char)
+            decoded = decoded + changed_alphabets[index]
+        else:
+            decoded = decoded + char
         
     print('The decoded message is ', decoded)
     
