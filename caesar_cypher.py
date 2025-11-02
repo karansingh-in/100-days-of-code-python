@@ -31,6 +31,10 @@ def encoding(num, message):
     
     
 def decoding(num, message):
+    '''This function decodes the message when provided with the correct shift sequence''' 
+    # the line above is a doc string, it has to be the first line after the declartion of a function
+    # when a user hovers over a function call statement, this information is shown to them
+    # this type of practice is specially favourable in collaborative programming
     alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
              'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
              'u', 'v', 'w', 'x', 'y', 'z']
