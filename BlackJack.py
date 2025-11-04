@@ -7,6 +7,8 @@ your_cards = []
 pc_cards = []
 def game():
     pc_cards.append(ranks[random.randint(0,12)])
+
+
     your_cards.append(ranks[random.randint(0,12)])
     your_cards.append(ranks[random.randint(0,12)])
     flag = True
@@ -25,18 +27,26 @@ def game():
             print(f'Your final hand: {your_cards}')
             print(f'PCs final hand: {pc_cards}')
             for card in your_cards:
-                if (card == 'Jack' or card == 'Queen' or card == 'King' or card == 'Ace'):
+                if (card == 'Jack' or card == 'Queen' or card == 'King'):
                     your_sum = your_sum + 10
+                elif card == 'Ace':
+                    print('do u want the ace card to be taken as 11 or 1?')
+                    ace = int(input())
+                    your_sum = your_sum + ace
                 else:
                     your_sum = your_sum + int(card)
             for card in pc_cards:
-                if (card == 'Jack' or card == 'Queen' or card == 'King' or card == 'Ace'):
+                if (card == 'Jack' or card == 'Queen' or card == 'King'):
                     pc_sum = pc_sum + 10
+                elif card == 'Ace':
+                    print('do u want the ace card to be taken as 11 or 1?')
+                    ace = int(input())
+                    your_sum = your_sum + ace
                 else:
                     pc_sum = pc_sum + int(card)
-            if(abs(your_sum - 23)> abs(pc_sum)):
+            if((abs(your_sum - 21)> abs(pc_sum)) or your_cards >= 21):
                 print('Computer Wins!')
-            elif(abs(your_sum - 23)< abs(pc_sum)):
+            elif((abs(your_sum - 21)< abs(pc_sum)) or pc_cards >= 21):
                 print('You Win!')        
             else:
                 print('Its a Draw!')
