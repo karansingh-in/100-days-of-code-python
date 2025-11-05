@@ -17,10 +17,8 @@ def check_blackjack():
                 elif card == 'Ace':
                     if local_your_sum + 11 > 21:
                         local_your_sum = local_your_sum + 1
-                        # print('Your Ace is taken as 1')
                     else:
                         local_your_sum = local_your_sum + 11
-                        # print('Your Ace is taken as 11')
                 else:
                     local_your_sum = local_your_sum + int(card)
     for card in local_pc_cards:
@@ -29,31 +27,14 @@ def check_blackjack():
                 elif card == 'Ace':
                     if local_pc_sum + 11 > 21:
                         local_pc_sum = local_pc_sum + 1
-                        # print('Computers Ace is taken as 1')
                     else:
                         local_pc_sum = local_pc_sum + 11
-                        # print('Computers Ace is taken as 11')
                 else:
                     local_pc_sum = local_pc_sum + int(card)
     if local_pc_sum == 21:
         return True
-            # print('Computer Wins!')
-            # print(f'Your final hand: {your_cards}')
-            # print(f'Computers final hand: {pc_cards}')
-            # print('Do u want to play another game of blackjack? Type y or n')
-            # response = input()
-            # if response == 'y':
-            #     game()
     elif local_your_sum == 21:
         return True
-            # print('You Win!')
-            # print(f'Your final hand: {your_cards}')
-            # print(f'Computers final hand: {pc_cards}')
-            # print('Do u want to play another game of blackjack? Type y or n')
-            # response = input()
-            # if response == 'y':
-            #     game()
-    
 def result():
             global your_sum
             global your_cards
@@ -139,10 +120,8 @@ def game():
                     elif card == 'Ace':
                         if local_pc_sum + 11 > 21:
                             local_pc_sum = local_pc_sum + 1
-                            # print('Computers Ace is taken as 1')
                         else:
                             local_pc_sum = local_pc_sum + 11
-                            # print('Computers Ace is taken as 11')
                     else:
                         local_pc_sum = local_pc_sum + int(card)  
             while local_pc_sum < 16:
@@ -152,23 +131,12 @@ def game():
                     elif card == 'Ace':
                         if local_pc_sum + 11 > 21:
                             local_pc_sum = local_pc_sum + 1
-                            # print('Computers Ace is taken as 1')
                         else:
                             local_pc_sum = local_pc_sum + 11
-                            # print('Computers Ace is taken as 11')
                     else:
                         local_pc_sum = local_pc_sum + int(card)   
                 pc_cards.append(ranks[random.randint(0,12)])
-                
             result()
-            # print('Do you want to play a game of BlackJack? Type y or n')
-            # more = input()
-            # if more == 'y':
-            #     your_cards.clear()
-            #     pc_cards.clear()
-            #     your_sum = int(0)
-            #     pc_sum = int(0)
-            #     game()
 game()
             
 
