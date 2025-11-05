@@ -138,12 +138,3 @@ def game():
                 pc_cards.append(ranks[random.randint(0,12)])
             result()
 game()
-            
-
-            
-            
-    
-        
-
-    
-
