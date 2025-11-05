@@ -16,9 +16,21 @@ else:
     chances = 10
     
 while chances > 0:
-    print(f'You have {chances} attempts remaining to guess the number.')
+    print(f'You have {chances} attempt/s remaining to guess the number.')
     print('Make a guess')
     guess = int(input())
-    
+    chances -= 1
+    if num - guess > 0:
+        print('Too low\n Guess again.')
+    elif num - guess < 0:
+        print('Too high\n Guess again')
+    else:
+        print(f'You got it, The ans was {num}.')
+        break
+        
+if chances == 0:
+        print('You have run out of guesses. You lose.')
+        
+        
     
 
