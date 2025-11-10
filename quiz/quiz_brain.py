@@ -1,6 +1,5 @@
 from data import question_data
 
-
 class QuizBrain:
     def __init__(self, list_of_que):
         self.question_no = int(0)
