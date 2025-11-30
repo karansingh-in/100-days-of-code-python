@@ -16,6 +16,7 @@ def clean():
     tom.clear()
     
     
+    
 screen.listen()
 screen.onkey(move_forward, 'w')
 screen.onkey(move_backward, 's')

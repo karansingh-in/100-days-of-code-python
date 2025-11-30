@@ -9,7 +9,6 @@ screen.title('Snake Game')
 starting_position = [(0,0), (-20,0), (-40,0)]
 screen.tracer(0) # stops auto refresh of screen
 
-
 segments = []
 
 for position in starting_position:
@@ -21,35 +20,19 @@ for position in starting_position:
     segments.append(new_part)
 screen.update() # force screen refresh
 
-def turn_left():
-    i = int(0)
-    while i<len(segments):
-        segments[i].forward(20*(i+1))
-        screen.update()
-        time.sleep(0.1)
-        j = i
-        while not (j - 1 < 0):
-            segments[j-1].forward(20)
-            screen.update()
-            time.sleep(0.1)
-            j -= 1
-        segments[i].left(90)
-        i += 1
-
-
-for parts in segments:
-    parts.forward(50)
-    screen.update()
-    time.sleep(0.1)
-    
-turn_left()
-# screen.update()
-# time.sleep(0.1)
-
 game_running = True
 while game_running:
-    for parts in segments:
-        parts.forward(20)
+    
+    for i in range(len(segments) - 1, 0, -1): # in range(start, end, step)
+        past_x = segments[i-1].xcor() # x coordiante of the last block
+        past_y = segments[i-1].ycor() # y coordinate of the last block
+        segments[i].goto(past_x, past_y) # new segment moving to the position of old block
+    segments[0].forward(20) # moves block one forward, the rest follow along
+    #segments[0].left(90)
+    
+    screen.listen()
+    screen.onkey(segments[0].left(90), 'a')
+    screen.onkey(segments[0].left(270), 'd')
 
     screen.update() # when all the parts move a step forward the screen refreshes 
     time.sleep(0.1) # this makes the screen refresh delay time to 0.1 sec so the snake looks faster 
