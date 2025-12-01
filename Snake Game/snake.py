@@ -7,15 +7,17 @@ class Snake():
         self.starting_position = [(0,0), (-20,0), (-40,0)]            
         self.segments = []
         for position in self.starting_position:
-            new_part = t.Turtle()
-            new_part.shape('square')
-            new_part.color('pink')
-            new_part.penup()
-            new_part.goto(position)
-            self.segments.append(new_part)
+            self.extend_tail(position)
         self.screen.update() # force screen refresh
         time.sleep(0.1)
 
+    def extend_tail(self, position):
+        new_part = t.Turtle()
+        new_part.shape('square')
+        new_part.color('pink')
+        new_part.penup()
+        new_part.goto(position)
+        self.segments.append(new_part)
     def move(self):
         for i in range(len(self.segments) - 1, 0, -1): # in range(start, end, step)
             past_x = self.segments[i-1].xcor() # x coordiante of the last block
