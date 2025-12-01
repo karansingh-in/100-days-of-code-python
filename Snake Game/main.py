@@ -19,11 +19,13 @@ while game_running:
     position_of_snake = saap.segments[0].pos()
     print(position_of_snake, khana.position_of_food)
     
-    if(int(position_of_snake[0]) == int(khana.position_of_food[0]) and int(position_of_snake[1]) == int(khana.position_of_food[1])):
-        #multiplier = int(len(saap.starting_position))
-        print('kha liyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+    if(abs(int(position_of_snake[0]) - int(khana.position_of_food[0])) < 15  and abs(int(position_of_snake[1]) - int(khana.position_of_food[1])) < 15):
+        multiplier = int(len(saap.starting_position)) + 1
+        new_tail = ((multiplier * -10), 0)
+        print('kha liyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
         khana.place_food()
-        #saap.starting_position.append()
+        
+        saap.starting_position.append(new_tail)
     saap.move() # the fucntion should has 'self' in it s decleration else it throws an error that 0 arguments were expected but 1 was given because self argument is given by default to the function whenever the function is called
     screen.update() # when all the parts move a step forward the screen refreshes 
     time.sleep(0.1) # this makes the screen refresh delay time to 0.1 sec so the snake looks faster

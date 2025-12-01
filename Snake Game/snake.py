@@ -1,8 +1,6 @@
 import turtle as t
 import time
 
-
-
 class Snake():
     screen = t.Screen()
     def __init__(self):
