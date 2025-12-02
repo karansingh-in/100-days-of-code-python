@@ -23,10 +23,8 @@ khana.place_food()
 game_running = True
 while game_running:
     position_of_snake = saap.segments[0].pos()
-    print(position_of_snake, khana.position_of_food)
     if(abs(int(position_of_snake[0]) - int(khana.position_of_food[0])) < 15  and abs(int(position_of_snake[1]) - int(khana.position_of_food[1])) < 15):
         position_of_tail = saap.segments[len(saap.segments) - 1].pos()
-        print('kha liyeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
         khana.place_food()
         score.clear()
         score.goto(0,280)
@@ -34,13 +32,11 @@ while game_running:
         score.write(f"Score: {scorecard}", align='center', font=('Arial', 12, 'normal'))
         saap.extend_tail(position_of_tail)
     if position_of_snake[0] > 285 or position_of_snake[0] < -285 or position_of_snake[1] > 285 or position_of_snake[1] < -285:
-        ending.write(f'GAME OVER!!\n Your Score: {scorecard}', align='center', font=('Arial', 28, 'normal'))
+        ending.write(f'GAME OVER!!\nyou hit a wall, Score: {scorecard}', align='center', font=('Arial', 28, 'normal'))
         game_running = False
-    
     for part in saap.segments:
         if part != saap.segments[0] and part != saap.segments[1] and saap.segments[0].distance(part) < 10:
-            print(saap.segments[0].pos())
-            print(part.pos())
+            ending.write(f'GAME OVER!!\nyou bit your tail, Score: {scorecard}', align='center', font=('Arial', 28, 'normal'))
             game_running = False
     saap.move() # the fucntion should has 'self' in it s decleration else it throws an error that 0 arguments were expected but 1 was given because self argument is given by default to the function whenever the function is called
     screen.update() # when all the parts move a step forward the screen refreshes 

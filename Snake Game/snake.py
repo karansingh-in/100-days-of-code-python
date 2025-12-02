@@ -23,33 +23,16 @@ class Snake():
             self.segments[i].goto(past_x, past_y) # new segment moving to the position of old block
         self.segments[0].forward(20) # moves block one forward, the rest follow along
     def up(self):
-        for i in range(len(self.segments) - 1, 0, -1): # in range(start, end, step)
-            past_x = self.segments[i-1].xcor() # x coordiante of the last block
-            past_y = self.segments[i-1].ycor() # y coordinate of the last block
-            self.segments[i].goto(past_x, past_y) # new segment moving to the position of old block
         self.segments[0].setheading(0)
         self.segments[0].left(90) # moves block one forward, the rest follow along   
     def down(self):
-        for i in range(len(self.segments) - 1, 0, -1): # in range(start, end, step)
-            past_x = self.segments[i-1].xcor() # x coordiante of the last block
-            past_y = self.segments[i-1].ycor() # y coordinate of the last block
-            self.segments[i].goto(past_x, past_y) # new segment moving to the position of old block
         self.segments[0].setheading(0)
         self.segments[0].left(270) # moves block one forward, the rest follow along
     def left(self):
-        for i in range(len(self.segments) - 1, 0, -1): # in range(start, end, step)
-            past_x = self.segments[i-1].xcor() # x coordiante of the last block
-            past_y = self.segments[i-1].ycor() # y coordinate of the last block
-            self.segments[i].goto(past_x, past_y) # new segment moving to the position of old block
         self.segments[0].setheading(0)
         self.segments[0].left(180) # moves block one forward, the rest follow along
     def right(self):
-        for i in range(len(self.segments) - 1, 0, -1): # in range(start, end, step)
-            past_x = self.segments[i-1].xcor() # x coordiante of the last block
-            past_y = self.segments[i-1].ycor() # y coordinate of the last block
-            self.segments[i].goto(past_x, past_y) # new segment moving to the position of old block
         self.segments[0].setheading(0)
-        #self.segments[0].left(270) # moves block one forward, the rest follow along
             
             
             
