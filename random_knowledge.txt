@@ -1,0 +1,6 @@
+the slice function in python can be used to reverse a list/tuple simply by:
+
+listname[::-1]
+
+
+
