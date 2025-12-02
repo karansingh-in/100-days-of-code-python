@@ -33,9 +33,15 @@ while game_running:
         scorecard += 1
         score.write(f"Score: {scorecard}", align='center', font=('Arial', 12, 'normal'))
         saap.extend_tail(position_of_tail)
-    if position_of_snake[0] > 280 or position_of_snake[0] < -280 or position_of_snake[1] > 280 or position_of_snake[1] < -280:
+    if position_of_snake[0] > 285 or position_of_snake[0] < -285 or position_of_snake[1] > 285 or position_of_snake[1] < -285:
         ending.write(f'GAME OVER!!\n Your Score: {scorecard}', align='center', font=('Arial', 28, 'normal'))
         game_running = False
+    
+    for part in saap.segments:
+        if part != saap.segments[0] and part != saap.segments[1] and saap.segments[0].distance(part) < 10:
+            print(saap.segments[0].pos())
+            print(part.pos())
+            game_running = False
     saap.move() # the fucntion should has 'self' in it s decleration else it throws an error that 0 arguments were expected but 1 was given because self argument is given by default to the function whenever the function is called
     screen.update() # when all the parts move a step forward the screen refreshes 
     time.sleep(0.1) # this makes the screen refresh delay time to 0.1 sec so the snake looks faster

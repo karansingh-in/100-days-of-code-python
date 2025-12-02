@@ -1,6 +1,5 @@
 import turtle as t
 import time
-
 class Snake():
     screen = t.Screen()
     def __init__(self):
@@ -10,7 +9,6 @@ class Snake():
             self.extend_tail(position)
         self.screen.update() # force screen refresh
         time.sleep(0.1)
-
     def extend_tail(self, position):
         new_part = t.Turtle()
         new_part.shape('square')
