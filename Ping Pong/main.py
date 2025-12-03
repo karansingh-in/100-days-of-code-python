@@ -21,8 +21,15 @@ block = Ball()
 
 game_running = True
 while game_running:
-    block.move_x()
-    block.move_y()
+    if block.block.pos()[1] > 380.0:
+        
+        block.move_y(-20)
+        block.move_x(20)
+    else:    
+        block.move_x(20)
+        block.move_y(20)
+            
+    print(block.block.pos()[1])
     screen.update()
 
 screen.listen()
