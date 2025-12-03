@@ -1,3 +1,0 @@
-('/home/karansingh/developer/100-days-of-code-python/Snake '
- 'Game/build/main/PYZ-00.pyz',
- [])
