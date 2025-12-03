@@ -1,6 +1,10 @@
 the slice function in python can be used to reverse a list/tuple simply by:
-
 listname[::-1]
+
+the slicing in python has the opposite syntax of parameters in a way, usually the first parameter is exclusive and last is inclusive here its the opposite
+listname[2:5] 2 is inclusive and 5 is exclusive here
+
+
 
 
 

@@ -8,7 +8,7 @@ class Food():
         self.apple.shape('circle')
         self.apple.shapesize(0.4)
     def place_food(self):
-        possible_positions = list(range(-290, 291, 20))
+        possible_positions = list(range(-250, 251, 20))
         x_position = round(random.choice(possible_positions)) * 1.00
         y_position = round(random.choice(possible_positions)) * 1.00
         self.position_of_food = (x_position,y_position)

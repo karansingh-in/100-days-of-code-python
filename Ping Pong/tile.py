@@ -26,6 +26,7 @@ class Tile():
         self.segments[2].goto(position[0], position[1] - 40)
         self.segments[3].goto(position[0], position[1] - 60)
         self.segments[4].goto(position[0], position[1] - 80)
+
         
         
     def move_up(self):

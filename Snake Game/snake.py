@@ -7,11 +7,12 @@ class Snake():
         self.segments = []
         for position in self.starting_position:
             self.extend_tail(position)
+        self.segments[0].shape('turtle')
         self.screen.update() # force screen refresh
         time.sleep(0.1)
     def extend_tail(self, position):
         new_part = t.Turtle()
-        new_part.shape('square')
+        new_part.shape('circle')
         new_part.color('pink')
         new_part.penup()
         new_part.goto(position)
