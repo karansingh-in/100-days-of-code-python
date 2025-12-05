@@ -13,7 +13,7 @@ class Snake():
     def extend_tail(self, position):
         new_part = t.Turtle()
         new_part.shape('circle')
-        new_part.color('pink')
+        new_part.color('DarkGreen')
         new_part.penup()
         new_part.goto(position)
         self.segments.append(new_part)

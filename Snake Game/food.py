@@ -6,7 +6,7 @@ class Food():
         self.apple = t.Turtle()
         self.apple.color('red')
         self.apple.shape('circle')
-        self.apple.shapesize(0.4)
+        self.apple.shapesize(0.6)
     def place_food(self):
         possible_positions = list(range(-250, 251, 20))
         x_position = round(random.choice(possible_positions)) * 1.00
