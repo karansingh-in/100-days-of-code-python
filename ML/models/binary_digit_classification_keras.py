@@ -1,8 +1,8 @@
-import tensorflow as tf
 from keras import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Flatten
 from keras.losses import BinaryCrossentropy
 from keras.datasets import mnist
+from keras.optimizers import Adam
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data() # digits dataset
 
@@ -15,19 +15,20 @@ X_test = X_test[filtered_test]/255.0
 y_test = y_test[filtered_test]
 
 model = Sequential([
-    tf.keras.layers.Flatten(),   # imp step
-    Dense(25, activation='sigmoid'),
-    Dense(15, activation='sigmoid'),
+    Flatten(), # imp step
+    Dense(25, activation='relu'),
+    Dense(15, activation='relu'),
     Dense(1, activation='sigmoid')])
 
 model.compile(
+    optimizer=Adam(learning_rate=0.001),
     loss=BinaryCrossentropy(),
     metrics=['accuracy']) # imp to print accuracy
 
 model.summary()
 model.fit(X_train, y_train, epochs=10, batch_size=64) # epochs = no. of iteration for gradient descent to run
 test_loss, test_acc = model.evaluate(X_test, y_test, verbose=0)
-print(f"Test accuracy: {test_acc:.4f}")
+print(f"Test accuracy: {test_acc*100:.4f} %")
 
 y_pred = model.predict(X_test)
 
